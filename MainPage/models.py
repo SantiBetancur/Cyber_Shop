@@ -2,18 +2,20 @@ from django.db import models
 
 # Create your models here.
 
-class Project(models.Model):
+class login_users(models.Model):
     # Create the fields
-    name = models.CharField(max_length = 45)# VARCHAR(45)
+    username = models.CharField(max_length = 45)# VARCHAR(45)
+    email    = models.CharField(max_length = 45)
+    password = models.CharField(max_length = 8)
     def __str__(self):
         return self.name
     
 
-class Task(models.Model):
-    title = models.CharField(max_length = 45)   
-    description = models.TextField()
-    project = models.ForeignKey(Project, on_delete = models.CASCADE) #On_delete is for delete all ocurrences if any project is deleted
-
-    def __str__(self):
-        return self.project.name + " -> " + self.title
+#class Task(models.Model):
+#    title = models.CharField(max_length = 45)   
+#    description = models.TextField()
+#    project = models.ForeignKey(Project, on_delete = models.CASCADE) #On_delete is for delete all ocurrences if any project is deleted
+#
+#    def __str__(self):
+#        return self.project.name + " -> " + self.title
 

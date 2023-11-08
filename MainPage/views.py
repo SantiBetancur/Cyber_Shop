@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from .models import Project, Task
+from .models import login_users
 from django.shortcuts import render
 
 # Create your views here.
@@ -8,10 +8,10 @@ from django.shortcuts import render
 #   return HttpResponse("<h1>Hello World</h1>")
 
 def index(request):
-    title = "This is the Title as a Param"
+    title = "Login"
     return render(request, 'index.html', {'title': title})
 
-def hello(request, username):
+'''def hello(request, username):
     return HttpResponse("<h1>Hello %s </h1>" % username)
 
 def about(request):
@@ -32,4 +32,4 @@ def projects(request):
 def tasks(request, id):
     task = Task.objects.get(id = id).title
 
-    return HttpResponse("<h1>Task: %s</h1>" % task)
+    return HttpResponse("<h1>Task: %s</h1>" % task)'''
