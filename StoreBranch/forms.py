@@ -4,7 +4,10 @@ from StoreBranch.models import Branch,Product
 class BranchForm(forms.ModelForm):
     class Meta:
         model = Branch
-        fields = [
-            "branchId","address"
-        ]
+        fields = "__all__"
+
+class ProductForm(forms.ModelForm):
+    class Meta:
+        model = Product
+        fields = "__all__"
 

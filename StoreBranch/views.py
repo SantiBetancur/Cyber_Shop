@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,get_object_or_404,HttpResponseRedirect
-from StoreBranch.forms import BranchForm
+from StoreBranch.forms import BranchForm,ProductForm
 from .models import Branch,Product
 
 # Create your views here.
@@ -9,18 +9,38 @@ def insertBranch(request):
     form = BranchForm(request.POST or None)
     if form.is_valid():
         form.save()
+        return HttpResponseRedirect("/hub/branches")
     context["form"] = form
     return render(request,"createView.html",context)
+
+def insertProduct(request, branchId):
+    context = {}
+    form = ProductForm(request.POST or None, initial={'productBranchId': branchId})
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect("/hub/branches/show/" + str(branchId))
+    context["form"] = form
+    return render(request, "createProduct.html", context)
 
 def showBranches(request):
     context = {}
     context["dataset"] = Branch.objects.all()   
     return render(request,"showBranches.html",context)
 
+def showProducts(request,branchId):
+    context = {}
+    context["dataset"] = Product.objects.filter(productBranchId=branchId)
+    return render(request,"showProducts.html",context)
+
 def showDetails(request,branchId):
     context = {}
     context["data"] = Branch.objects.get(branchId=branchId)
     return render(request,"showDetails.html",context)
+
+def showProductDetail(request,productId):
+    context = {}
+    context["data"] = Product.objects.get(productId=productId)
+    return render(request,"showProductDetail.html",context)
 
 def update(request,branchId):
     context = {}
@@ -29,7 +49,7 @@ def update(request,branchId):
 
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("./"+str(branchId))
+        return HttpResponseRedirect("/hub/branches")
     
     context["form"] = form
 
