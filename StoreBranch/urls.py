@@ -3,10 +3,8 @@ from django.urls import path
 from StoreBranch import views
 
 urlpatterns = [
-    path('admin/',admin.site.urls),
-    path('branch',views.branch),
-    path('show/',views.show),
-    path('edit/<int:id>',views.edit),
-    path('update/<int:id>',views.update),
-    path('destroy/<int:id>',views.destroy)
+    path('insert/',views.insertBranch),
+    path('show/',views.showBranches),
+    path('show/<int:id>',views.showDetails),
+
 ]

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from .models import login_users
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import Login_form
 
 # Create your views here.
@@ -9,8 +9,12 @@ from .forms import Login_form
 #   return HttpResponse("<h1>Hello World</h1>")
 
 def index(request):
-    
-    return render(request, 'index.html', {'form': Login_form})
+    if request.method == 'POST':
+
+        print(request.POST)
+        return render(request, 'index.html', {'form': Login_form})
+    else:
+        login_users.objects.create(username = request.POST ['username'], password = request.POST['password'])
 
 '''def hello(request, username):
     return HttpResponse("<h1>Hello %s </h1>" % username)

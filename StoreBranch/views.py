@@ -1,40 +1,23 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from StoreBranch.forms import BranchForm
-from StoreBranch.models import Branch,Product
+from .models import Branch,Product
 
 # Create your views here.
 
-def branch(request):
-    if request.method == "POST":
-        form = BranchForm(request.POST)
-        if form.is_valid():
-            try:
-                form.save()
-                return redirect('/show')
-            except:
-                pass
-    else:
-        form = BranchForm()
-    return render(request,'hub.html',{'form':form})
-
-def show(request):
-    branches = Branch.objects.all()
-    return render(request,'show.html',{'branches':branches})
-
-def edit(request,id):
-    branch = Branch.objects.get(id=id)
-    return render(request,'edit.html',{'branch':branch})
-
-def update(request,id):
-    branch = Branch.objects.get(id=id)
-    form = BranchForm(request.POST,instance=branch)
+def insertBranch(request):
+    context = {}
+    form = BranchForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect("/show")
-    return render(request,'edit.html',{'branch':branch})
+    context["form"] = form
+    return render(request,"createView.html",context)
 
-def destroy(request,id):
-    branch = Branch.objects.get(id=id)
-    branch.delete()
-    return redirect("/show") 
+def showBranches(request):
+    context = {}
+    context["dataset"] = Branch.objects.all()   
+    return render(request,"showBranches.html",context)
 
+def showDetails(request,id):
+    context = {}
+    context["data"] = Branch.objects.get(branchId=id)
+    return render(request,"showDetails.html",context)
