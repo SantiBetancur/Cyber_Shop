@@ -4,7 +4,9 @@ from StoreBranch import views
 
 urlpatterns = [
     path('insert/',views.insertBranch),
-    path('show/',views.showBranches),
-    path('show/<int:id>',views.showDetails),
+    path('branches/',views.showBranches),
+    path('show/<int:branchId>',views.showDetails),
+    path('update/<int:branchId>',views.update),
+    path('delete/<int:branchId>',views.delete)
 
 ]
