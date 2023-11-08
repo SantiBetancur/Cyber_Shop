@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'MainPage',
     'MainMenu',
     'StoreBranch',
+    'Clients'
 ]
 
 MIDDLEWARE = [
