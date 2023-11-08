@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Page</title>
+</head>
+<style>
+body {
+    font-family: sans-serif;
+    background-color: #f2f2f2;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  header {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  nav {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(126, 22, 112, 0.401);
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav li {
+    display: inline-block;
+    margin-right: 20px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  section {
+    margin-bottom: 20px;
+  }
+  
+  .hero {
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 36px;
+    font-weight: bold;
+  }
+  
+  .hero p {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  
+  .features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .feature {
+    width: 300px;
+    margin: 0 10px;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  .feature img {
+    width: 100px;
+    height: 100px;
+    
+  }
+</style>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="logo">CyberShop</h1>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="clients.html">Clients</a></li>
+        <li><a href="branches.html">Branches</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <h1>Welcome Back!</h1>
+        <p>You have successfully logged in.</p>
+      </section>
+
+      <section class="features">
+        <div class="feature">
+          <img src="images/clients.svg" alt="Clients Icon">
+          <h2>Clients</h2>
+          <p>Manage your client information and relationships.</p>
+          <a href="clients.html" class="btn">Access Clients</a>
+        </div>
+
+        <div class="feature">
+          <img src="images/branches.svg" alt="Branches Icon">
+          <h2>Branches</h2>
+          <p>Oversee your company's branches and locations.</p>
+          <a href="branches.html" class="btn">Access Branches</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 CyberShop</p>
+    </footer>
+  </div>
+</body>
+</html>

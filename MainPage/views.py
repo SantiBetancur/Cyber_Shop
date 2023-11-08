@@ -2,14 +2,15 @@ from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
 from .models import login_users
 from django.shortcuts import render
+from .forms import Login_form
 
 # Create your views here.
 #def hello(request):
 #   return HttpResponse("<h1>Hello World</h1>")
 
 def index(request):
-    title = "Login"
-    return render(request, 'index.html', {'title': title})
+    
+    return render(request, 'index.html', {'form': Login_form})
 
 '''def hello(request, username):
     return HttpResponse("<h1>Hello %s </h1>" % username)
