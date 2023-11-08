@@ -1,0 +1,92 @@
+How is the struct of a django project:
+
+When you start a new django project, you are starting the core, then, you need to create apps.Apps are each part in your webapp, for example, the main section or a different section on you webapp.
+Each app needs to be connected with the core.
+
+Within your app there are different files:
+
+views.py : One of the most used is views.py, where you can to create your views (messages to show in the browser) and html code.
+migratios: The folder 'migratios' is to interact with the DB, django implements python fuctions to interact with the db, it means that is not necessary to make SQl consults directly.
+models.py: In this file you can to create the sql schema of the current app.
+______________________________________________________________________________
+
+Example to create a new schema:
+
+from django.db import models
+
+# Create your models here.
+
+Each class will be a table in the sql model.
+class Project(models.Model):
+    # Create the fields
+    name = models.CharField(max_length = 45)# VARCHAR(45)
+
+class Task(models.Model):
+    title = models.CharField(max_length = 45)   
+    description = models.TextField()
+    project = models.ForeignKey(Project, on_delete = models.CASCADE) #On_delete is for delete all ocurrences if any project is deleted
+
+_______________________________________________________________________________
+
+Example of how to fill the database from the shell:
+
+from MainPage.models import Project, Task
+
+To create a new project:
+>>> new_project = Project(name = "First Project")
+>>> new_project.save()
+>>> new_project.save()
+>>> project_2 = Project(name = "Second Project")
+>>> project_2.save()
+
+To create a new task from it's project:
+>>> new_project.task_set.create(title = "Firs_Task", description = "This task is of the first_project")
+<Task: Task object (1)>
+
+________________________________________________________________________________
+
+Basics requests to the DB from the shell:
+
+>>> Project.objects.all()
+<QuerySet [<Project: Project object (1)>, <Project: Project object (2)>]>
+>>> Project.objects.get(id=2).name
+'Second Project'
+
+>>> new_project.task_set.get(title = 'Firs_Task').description
+'This task is of the first_project'
+
+>>> Project.objects.filter(name__startswith = 'First')
+<QuerySet [<Project: Project object (1)>]>
+
+_________________________________________________________________________________
+
+Params 
+Are a form to send variables to functions througth direction bar.
+Example:
+
+In the urls path:
+path('hello/<str:username>', views.hello)
+
+In the view:
+def hello(request, username):
+    return HttpResponse("<h1>Hello %s </h1>" % username)
+
+_____________
+
+Command Lines:
+_____________
+
+To start a new project (core):
+django-admin startproject 'project_name' .
+
+To run the server:
+python manage.py runserver
+
+To change the port where the server will be executed:
+python manage.py runserver #portnumber
+
+To start a new app in your project (apps):
+python manage.py startapp 'App_Name'
+
+To run the python interpreter 
+python manage.py shell
