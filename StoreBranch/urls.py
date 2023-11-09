@@ -8,8 +8,10 @@ urlpatterns = [
     path('show/<int:branchId>',views.showDetails),
     path('update/<int:branchId>',views.update),
     path('delete/<int:branchId>',views.delete),
-    path('addProduct/<int:branchId>',views.insertProduct),
-    path('showProducts/<int:branchId>',views.showProducts),
-    path('showProductDetail/<int:productId>',views.showProductDetail)
+    path('show/showProducts/addProduct/',views.insertProduct),
+    path('show/showProducts/<int:branchId>',views.showProducts),
+    path('show/showProducts/showProductDetails/<int:productId>',views.showProductDetail),
+    path('show/showProducts/updateProduct/<int:branchId>/<int:productId>',views.updateProduct),
+    path('show/showProducts/deleteProduct/<int:branchId>/<int:productId>',views.deleteProduct),
 
 ]
