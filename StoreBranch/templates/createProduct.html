@@ -1,7 +1,7 @@
-
 <button onclick="history.back()">Go Back</button>
 
 <form method="POST" enctype="multipart/form-data">
+
  
     <!-- Security token -->
     {% csrf_token %}
@@ -10,4 +10,5 @@
     {{ form.as_p }}
      
     <input type="submit" value="Submit">
+    
 </form>

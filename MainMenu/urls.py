@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('',views.Mindex),
-    path('',include('StoreBranch.urls'))
+    path('branches/',include('StoreBranch.urls'))
 ]

@@ -18,7 +18,6 @@
 }
 
 .branch-info {
-  margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   margin-bottom: 20px;
@@ -60,31 +59,27 @@
   border-radius: 5px;
 }
 
-
-
 .branch-management a:hover {
   background-color: #333;
 }
-
-
     </style>
 </head>
-<button onclick="history.back()">Go Back</button>
-
+<a href="/hub/branches" class="btn">HOME</a>
 
 <div class="main">
-  <h1>BRANCHES</h1>
 
     {% for data in dataset %}
   
       <div class="branch-info">
-        <p>Branch ID: {{ data.branchId }}</p>
-        <p>Address: {{ data.address }}</p>
+        <p>Product ID: {{ data.productId }}</p>
+        <p>Price: {{ data.price }}</p>
+        <p>Category: {{ data.category }}</p>
+        <p>Position: {{ data.Position }}</p>
+        <p>Branch ID: {{ data.productBranchId }}</p>
   
         <div class="branch-actions">
-          <a href="./show/{{ data.branchId }}" class="btn">View Details</a>
-          <a href="./update/{{ data.branchId }}" class="btn">Edit</a>
-          <a href="./delete/{{data.branchId}}" class="btn">Delete Branch</a>
+          <a href="./updateProduct/{{data.productBranchId}}/{{ data.productId }}" class="btn">Edit</a>
+          <a href="./deleteProduct/{{data.productBranchId}}/{{data.productId}}" class="btn">Delete Product</a>
         </div>
       </div>
   
@@ -93,7 +88,7 @@
     {% endfor %}
   
     <div class="branch-management">
-      <a href="./insert" class="btn">Add New Branch</a>
+      <a href="./addProduct/" class="btn">Add New Product</a>
 
     </div>
   
