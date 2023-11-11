@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Login to Cyber Shop</title>
+  <title>Register New Admin</title>
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
@@ -100,27 +100,31 @@ body {
     justify-content: center;
     width: 200px;
     height: auto;
-    color: rgb(230, 103, 103);
+    color: rgb(201, 79, 79);
     position: absolute;
     margin-top:40px ;
-	margin-left: 30px;
+    margin-left:30px ;
 	font-weight: bold;
+    font-size: 13px;
+
 }
 
 .login {
 	width: 380px;
-	height: 450px;
+	height: 500px;
 	padding: 30px;
-	padding-top: 120px;
-	font-size: 20px;
+	padding-top: 90px;
 	margin-right: 100px;
+	font-size: 20px;
+    display: block;
+   
 }
 .login p{
 	margin-bottom: 30px ;
 	font-size: 18px;
 	font-weight: bold;	
 	color: rgb(82, 82, 82);
-
+	padding: 8px;	
 }
 .login p span{
 	font-size: 28px;
@@ -155,6 +159,28 @@ body {
 	transition: .2s;
 }
 
+#id_password_confirmation {
+	border: none;
+	border-bottom: 2px solid #D1D1D4;
+	background: none;
+	padding: 10px;
+	padding-left: 24px;
+	font-weight: bold;
+	width: 75%;
+	transition: .2s;
+}
+
+#id_email {
+	border: none;
+	border-bottom: 2px solid #D1D1D4;
+	background: none;
+	padding: 10px;
+	padding-left: 24px;
+	font-weight: bold;
+	width: 75%;
+	transition: .2s;
+}
+
 #id_username:active,
 #id_username:focus,
 #id_username:hover {
@@ -164,6 +190,24 @@ body {
 #id_password:active,
 #id_password:focus,
 #id_password:hover {
+    outline: none;
+	border-bottom-color: #6A679E
+}
+#id_password:hover::before {
+    content: 'Min 8';
+    color: #474747;
+    font-style: normal;
+}
+
+#id_password_confirmation:active,
+#id_password_confirmation:focus,
+#id_password_confirmation:hover {
+	outline: none;
+	border-bottom-color: #6A679E;
+}
+#id_email:active,
+#id_email:focus,
+#id_email:hover {
 	outline: none;
 	border-bottom-color: #6A679E;
 }
@@ -171,10 +215,10 @@ body {
 .login__submit {
 	background:#5D54A4;
 	font-size: 14px;
-	margin-top: 30px;
+	margin-top: 10px;
 	padding: 16px 20px;
-	border-radius: 20px;
-	border: 2px solid #5D54A4;
+	border-radius: 30px;
+	border: 2px solid #5D54A4; 
 	text-transform: uppercase;
 	font-weight: 700;
 	display: flex;
@@ -198,16 +242,18 @@ body {
 .aux {
     align-items: center;
     list-style: none;
-    margin-top: 20px;   
+    margin-top: 20px;  
+	margin-left: 20px; 
 }
 
 .aux a{
-    color:#5C5696;
+    color:#5D54A4;
 	font-size: 15px;
 	font-style: normal;
 	font-weight: bold;
 		
 }
+
 
 </style>
 <body>
@@ -216,23 +262,28 @@ body {
   <div class="container">
 	<div class="screen">
 		<div class="screen__content">
-			<div class="errors_container">
-                {{login_error}}
-				{{register_success}}
+            <div class="errors_container">
+                {{error_match}}
+                {{error_register}}
+                {{error_password}}
             </div>
-			<form class="login" method="POST">
-
+            
+			<form class="login"  method="POST">
+                
 				<p><span>Cyber Shop™</span> Admin Center</p>
-				{% csrf_token %}
-				{{form}}
-				
+
+                {% csrf_token %}
+
+				{{register}}
+				<p style="font-size: 13px; color:rgb(99, 99, 99);" >Min 8 char with: 1 Upper/Lower char and 1 number.</p>
 				<button class="button login__submit">
-					<span class="button__text">Log In Now</span>
-					<i class="button__icon fas fa-chevron-right"></i>
+					<span class="button__text">Register Now</span>
 				</button>	
 				<li class="aux">
-					<a href="/register_admin">Register New Admin</a>
-				</li>			
+					<a href="/">I'll to log in</a>
+				</li>	
+                
+                		
 			</form>
 			
 		</div>
