@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse,JsonResponse
 from django.shortcuts import render
+from django.contrib.auth.models import User
 
 
 
@@ -8,4 +9,4 @@ from django.shortcuts import render
 
 def Mindex(request):
     
-    return render(request,'mindex.html')
+    return render(request,'mindex.html',{'get_username':request.user.username})

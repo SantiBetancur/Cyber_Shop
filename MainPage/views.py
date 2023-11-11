@@ -22,7 +22,7 @@ def index(request):
             if (check_password(request.POST['password'], 
                             User.objects.get(username = get_user).password)): 
             
-                return redirect('/branches/show/')
+                return redirect('/main/')
         
             return render(request, 'index.html', 
                         {'form': Login_form(), 'login_error':'Incorrect Username or Password'})
@@ -40,6 +40,7 @@ def register(request):
     if request.method == 'GET':
         return render(request, 'register.html',{'register':Register_form()})    
     else:
+        
         try:
             validate_password(request.POST['password'])
             if request.POST['password'] == request.POST['password_confirmation']:

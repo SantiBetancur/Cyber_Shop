@@ -7,32 +7,70 @@
 </head>
 <style>
 body {
-    font-family: sans-serif;
-    background-color: #f2f2f2;
+    font-family: Raleway, sans-serif;
+    background-color:rgb(202, 202, 202);
+    justify-content: center;
+    align-items: center;
+    padding-top: 3%;
   }
   
   .container {
-    max-width: 1200px;
+
+    max-width: 50%;
+    max-height: 70%;
     margin: 0 auto;
-    padding: 20px;
+    padding: 5% 2% 5% 2% ;
+    background-color: #ffffff;
+    border: solid 3px #1c0aa5;
+    border-radius: 7px;
   }
   
   header {
-    background-color: #fff;
+    background: linear-gradient(270deg, #4d448f, #6A679E);
     padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  .log_out_btn{
+    position: absolute;
+    width: 100px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;  
+    left: 67%;
+    font-size: 15px;
+    border: solid 1px white;
+    color: #5c5c5c;
+    font-weight: bold;
+    transition: .2s;
+  }
+  .log_out_btn:hover{
+    border: solid 1px #2815b3;
+    color:#6A679E;
+    cursor: pointer;
   }
   
   .logo {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
-    color: #333;
+	  color: #fff;
+  }
+  .logo span{
+    font-size: 20px;
+    color: #d9d9d9;
   }
   
   nav {
     background-color: #fff;
     padding: 20px;
-    box-shadow: 0 2px 4px rgba(126, 22, 112, 0.401);
+    box-shadow: 0 4px 1px #1c0aa5;
+
+    border-bottom-left-radius: 20px ;
+    border-bottom-right-radius: 20px;
   }
   
   nav ul {
@@ -48,8 +86,11 @@ body {
   
   nav a {
     text-decoration: none;
-    color: #333;
+    color: #5a5a5a;
     font-weight: bold;
+  }
+  nav a:hover{
+    color: #4d448f;
   }
   
   main {
@@ -62,16 +103,18 @@ body {
   
   .hero {
     text-align: center;
+    margin: 40px;
   }
   
   .hero h1 {
     font-size: 36px;
     font-weight: bold;
+    color:#646464;
   }
   
   .hero p {
     font-size: 18px;
-    line-height: 24px;
+    color: #717171;
   }
   
   .features {
@@ -84,33 +127,45 @@ body {
     width: 300px;
     margin: 0 10px;
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color:#6A679E;
+    color: #fff;
+    border-radius: 10px;
     text-align: center;
+    transition: .3s;
+  }
+  .feature:hover{
+    width: 340px;
+ 
   }
   
   .feature img {
     width: 100px;
     height: 100px;
-    
+  }
+  .btn{
+    font-style: normal;
+    color: white;
+    font-weight: bold;
   }
 </style>
 <body>
   <div class="container">
     <header>
-      <h1 class="logo">CyberShop</h1>
+      <h1 class="logo">Cyber Shop™ <span>Admin center</span></h1>
+      <button class="log_out_btn">Log out</button>
+      
     </header>
 
     <nav>
       <ul>
-        <li><a href="./clients/">Clients</a></li>
-        <li><a href="./branches/">Branches</a></li>
+        <li><a href="/clients/">Clients</a></li>
+        <li><a href="/branches/">Branches</a></li>
       </ul>
     </nav>
 
     <main>
       <section class="hero">
-        <h1>Welcome Back!</h1>
+        <h1>Welcome Back {{get_username}}!</h1>
         <p>You have successfully logged in.</p>
       </section>
 
@@ -132,7 +187,7 @@ body {
     </main>
 
     <footer>
-      <p>&copy; 2023 CyberShop</p>
+      <p>&copy; 2023 Cyber Shop™</p>
     </footer>
   </div>
 </body>

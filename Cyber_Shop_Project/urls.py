@@ -21,5 +21,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('MainPage.urls')),
-    path('branches/',include('MainMenu.urls'))
+    path('main/',include('MainMenu.urls'))
 ]

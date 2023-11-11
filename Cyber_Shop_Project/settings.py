@@ -85,7 +85,7 @@ DATABASES = {
         'HOST': 'localhost',
         'PORT': '3306',
         'USER': 'root',
-        'PASSWORD': 'Nomeacuerdo12.'
+        'PASSWORD': '0610Mysql+'
     }
 }
 
