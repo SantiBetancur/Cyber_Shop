@@ -9,7 +9,7 @@ def insertBranch(request):
     form = BranchForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/hub/branches")
+        return HttpResponseRedirect("/main/branches")
     context["form"] = form
     return render(request,"createView.html",context)
 
@@ -18,7 +18,7 @@ def insertProduct(request):
     form = ProductForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/hub/branches/")
+        return HttpResponseRedirect("/main/branches/")
     context["form"] = form
     return render(request, "createProduct.html", context)
 
@@ -50,7 +50,7 @@ def update(request,branchId):
 
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/hub/branches")
+        return HttpResponseRedirect("/main/branches")
     
     context["form"] = form
 
@@ -63,7 +63,7 @@ def updateProduct(request,branchId,productId):
 
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("/hub/branches/show/"+str(branchId))
+        return HttpResponseRedirect("/main/branches/show/"+str(branchId))
     context["form"] = form
     return render(request,"updateProduct.html",context)
 
@@ -72,7 +72,7 @@ def delete(request,branchId):
     obj = get_object_or_404(Branch,branchId=branchId)
     if request.method == 'POST':
         obj.delete()
-        return HttpResponseRedirect("/hub/branches")
+        return HttpResponseRedirect("/main/branches")
     return render(request,"delete.html",context)
 
 def deleteProduct(request,branchId,productId):
@@ -80,5 +80,5 @@ def deleteProduct(request,branchId,productId):
     obj = get_object_or_404(Product,productId=productId)
     if request.method == 'POST':
         obj.delete()
-        return HttpResponseRedirect("/hub/branches/show/showProducts/"+str(branchId))
+        return HttpResponseRedirect("/main/branches/show/showProducts/"+str(branchId))
     return render(request,"deleteProduct.html",context)
