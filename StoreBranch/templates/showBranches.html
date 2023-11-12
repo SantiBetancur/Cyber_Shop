@@ -1,63 +1,162 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Branches</title>
-    <style>
+</head>
+<style>
 
-        body {
-            font-family: sans-serif;
-            background-color: #f2f2f2;
-        }
-        .main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+body {
+    font-family: Raleway, sans-serif;
+    background-color:rgb(202, 202, 202);
+    justify-content: center;
+    align-items: center;
+    padding-top: 1%;
+    --s: 50px;
+    --c: #191b22;
+    --_s: calc(2*var(--s)) calc(2*var(--s));
+    --_g: 35.36% 35.36% at;
+    --_c: #0000 66%,#20222a 68% 70%,#0000 72%;
+    background: 
+      radial-gradient(var(--_g) 100% 25%,var(--_c)) var(--s) var(--s)/var(--_s), 
+      radial-gradient(var(--_g) 0 75%,var(--_c)) var(--s) var(--s)/var(--_s), 
+      radial-gradient(var(--_g) 100% 25%,var(--_c)) 0 0/var(--_s), 
+      radial-gradient(var(--_g) 0 75%,var(--_c)) 0 0/var(--_s), 
+      repeating-conic-gradient(var(--c) 0 25%,#0000 0 50%) 0 0/var(--_s), 
+      radial-gradient(var(--_c)) 0 calc(var(--s)/2)/var(--s) var(--s) var(--c);
+    background-attachment: fixed;
+  }
+
+header {
+
+    background: linear-gradient(270deg, #4d448f, #6A679E);
+    padding: 20px;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    
+  }  
+  
+.logo {
+    font-size: 30px;
+    font-weight: bold;
+	  color: #fff;
+  }
+.logo span{
+    font-size: 20px;
+    color: #d9d9d9;
+  }
+  
+.back_btn{
+    position: relative;
+    text-align:center ;
+    width: 100px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;  
+    left: 15%;
+    font-size: 15px;
+    border: solid 1px white;
+    color: #2815b3;
+    font-weight: bold;
+    transition: .2s;
+  }
+  .back_btn:hover{
+    border: solid 1px #2815b3;
+    color:#6A679E;
+    cursor: pointer;
+  }
+.container {  
+
+    max-width: 50%;
+    height: 600px;
+    margin: 0 auto;
+    padding: 5% 2% 5% 2% ;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: auto;
+    box-shadow: 0px 0px 24px #5C5696;
 }
 
+
+.branch_content{
+  background-color: #dddddd;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 40px;
+  
+  
+}
+.branch_content h1 {
+  font-size: 27px;
+  font-weight: bold;
+  color: #5D54A4;
+  margin-left: 20px;
+}
 .branch-info {
-  margin: 0 auto;
+  background-color: #fff;
+  margin: 10px;
   padding: 20px;
-  border: 1px solid #ccc;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  border-radius: 20px;
+  border: solid 2px #2815b3;
 }
 
 .branch-info p {
-  font-size: 20px;
+  font-size: 15px;
   line-height: 24px;
+  color:rgb(218, 85, 85);
+  margin-bottom: 10px;
+  border-bottom: solid 3px #b7b7b7;
+  
+}
+
+.branch-info p span{
+  color: #4d4d4d;
   font-weight: bold;
 }
 
+
 .branch-actions {
-  margin-top: 20px;
-  text-align: right;
+  margin-top: 50px;
+  text-align: center;
 }
 
 .branch-actions a {
+  background:#5D54A4;
+	font-size: 15px;
+  padding: 10px 40px 10px 40px;
+  margin-left: 30px;
+  color: white;
+  font-weight: bold;
   text-decoration: none;
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  border-radius: 5px;
-  margin-right: 10px;
+  border-radius: 30px;
+  transition: .2s;
+ 
 }
 
 .branch-actions a:hover {
-  background-color: #9254b4;
+  background-color: #2b2597;
 }
 
 .branch-management {
-  text-align: right;
+  text-align: center;
 }
 
 .branch-management a {
   text-decoration: none;
-  padding: 10px 20px;
-  background-color: #9254b4;
+  padding: 10px 40px 10px 40px;
+  background-color: #5D54A4;
+  font-size: 25px;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 
@@ -66,37 +165,126 @@
   background-color: #333;
 }
 
+.branch_stock{
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.branch_stock_btn a{
+  background:#5D54A4;
+	font-size: 15px;
+  padding: 10px 40px 10px 40px;
+  margin-left: 30px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: .2s;
+}
 
-    </style>
-</head>
-<button onclick="history.back()">Go Back</button>
+.branch_stock_btn a:hover{
+  background-color: #2b2597;
+}
 
 
-<div class="main">
-  <h1>BRANCHES</h1>
+form label {
+	border: none;
+	border-bottom: 2px solid #D1D1D4;
+	background: none;
+	padding: 10px;
+	padding-left: 24px;
+  padding-right:24px ;
+	font-weight: bold;
+  color: #3d3d3d;
+  font-size: 20px;
+	width: 75%;
+	transition: .2s;
+}
 
-    {% for data in dataset %}
+form label:hover{
+  outline: none;
+	border-bottom-color: #6A679E;
+}
+form input{
+  background-color: white;
+  border-radius: 20px;
+  border: solid 1px white;
+}
+
+form p{
+display: flex;
+}
+
+.forms_submit {
+  background:#5D54A4;
+	font-size: 15px;
+  padding: 10px 40px 10px 40px;
+  margin-left: 30px;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 30px;
+  transition: .2s;
+  font-size: 20px;
   
-      <div class="branch-info">
-        <p>Branch ID: {{ data.branchId }}</p>
-        <p>Address: {{ data.address }}</p>
+}
+
+.forms_submit:hover{
+  background-color: #2b2597;
+  cursor: pointer;
+}
+
+
+</style>
+<body>
+
+  <div class="container">
+
+    
+    
+    <header>
+      <h1 class="logo">Cyber Shop™ <span>Admin center</span></h1>
+      <button onclick="history.back()" class="back_btn">Go Back</button>
+    </header>
+
+    {% block content %}  
+    <section class="branch_content">
+
+        <h1>Available Branches</h1>
+
+        {% for data in dataset %}
+      
+          <div class="branch-info">
+            <p>Branch:  <span>{{ data.branchId }}</span></p>
+            <p>Address: <span>{{ data.address }}</span></p>
+      
+            <div class="branch-actions">
+              <a href="./show/{{ data.branchId }}" class="btn">View Details</a>
+              <a href="./update/{{ data.branchId }}" class="btn">Edit</a>
+              <a href="./delete/{{data.branchId}}" class="btn">Delete Branch</a>
+    
+            </div>
+          </div>
+      
   
-        <div class="branch-actions">
-          <a href="./show/{{ data.branchId }}" class="btn">View Details</a>
-          <a href="./update/{{ data.branchId }}" class="btn">Edit</a>
-          <a href="./delete/{{data.branchId}}" class="btn">Delete Branch</a>
+      
+        {% endfor %}
+      
+        <div class="branch-management">
+          <a href="./insert" class="btn">Add New Branch</a>
+
         </div>
-      </div>
-  
-      <hr/>
-  
-    {% endfor %}
-  
-    <div class="branch-management">
-      <a href="./insert" class="btn">Add New Branch</a>
 
-    </div>
-  
+    </section>
+
+    {% endblock %}
+
+    <footer>
+      <p>&copy; 2023 Cyber Shop™</p>
+    </footer>
+
   </div>
-  </html> 
+</body> 
+
+</html> 
   

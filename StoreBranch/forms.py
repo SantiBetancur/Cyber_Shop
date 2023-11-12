@@ -1,5 +1,5 @@
 from django import forms
-from StoreBranch.models import Branch,Product
+from StoreBranch.models import Branch, Stock
 
 class BranchForm(forms.ModelForm):
     class Meta:
@@ -8,6 +8,6 @@ class BranchForm(forms.ModelForm):
 
 class ProductForm(forms.ModelForm):
     class Meta:
-        model = Product
+        model = Stock
         fields = "__all__"
 

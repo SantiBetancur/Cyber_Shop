@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,23 +7,38 @@
   <title>Main Page</title>
 </head>
 <style>
+
+ 
 body {
     font-family: Raleway, sans-serif;
     background-color:rgb(202, 202, 202);
     justify-content: center;
     align-items: center;
-    padding-top: 3%;
+    padding-top: 1%;
+    --s: 50px;
+    --c: #191b22;
+    --_s: calc(2*var(--s)) calc(2*var(--s));
+    --_g: 35.36% 35.36% at;
+    --_c: #0000 66%,#20222a 68% 70%,#0000 72%;
+    background: 
+      radial-gradient(var(--_g) 100% 25%,var(--_c)) var(--s) var(--s)/var(--_s), 
+      radial-gradient(var(--_g) 0 75%,var(--_c)) var(--s) var(--s)/var(--_s), 
+      radial-gradient(var(--_g) 100% 25%,var(--_c)) 0 0/var(--_s), 
+      radial-gradient(var(--_g) 0 75%,var(--_c)) 0 0/var(--_s), 
+      repeating-conic-gradient(var(--c) 0 25%,#0000 0 50%) 0 0/var(--_s), 
+      radial-gradient(var(--_c)) 0 calc(var(--s)/2)/var(--s) var(--s) var(--c);
+    background-attachment: fixed;
   }
   
   .container {
 
     max-width: 50%;
-    max-height: 70%;
+    height: 600px;
     margin: 0 auto;
     padding: 5% 2% 5% 2% ;
     background-color: #ffffff;
-    border: solid 3px #1c0aa5;
-    border-radius: 7px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 24px #5C5696;
   }
   
   header {
@@ -36,12 +52,13 @@ body {
     border-top-right-radius: 20px;
   }
   .log_out_btn{
-    position: absolute;
+    position: relative;
+    text-align:center ;
     width: 100px;
     padding: 10px;
     background-color: white;
     border-radius: 10px;  
-    left: 67%;
+    left: 15%;
     font-size: 15px;
     border: solid 1px white;
     color: #5c5c5c;
@@ -134,8 +151,7 @@ body {
     transition: .3s;
   }
   .feature:hover{
-    width: 340px;
- 
+    background-color: #343168;
   }
   
   .feature img {
@@ -152,23 +168,26 @@ body {
   <div class="container">
     <header>
       <h1 class="logo">Cyber Shop™ <span>Admin center</span></h1>
-      <button class="log_out_btn">Log out</button>
+      <a class="log_out_btn" href="/" >Log out</a>
       
     </header>
 
     <nav>
       <ul>
-        <li><a href="/clients/">Clients</a></li>
-        <li><a href="/branches/">Branches</a></li>
+        <li><a href="./clients/">Clients</a></li>
+        <li><a href="./branches/">Branches</a></li>
       </ul>
     </nav>
 
     <main>
+
       <section class="hero">
         <h1>Welcome Back {{get_username}}!</h1>
         <p>You have successfully logged in.</p>
       </section>
 
+      {% block content %}
+      
       <section class="features">
         <div class="feature">
           <img src="images/clients.svg" alt="Clients Icon">
@@ -184,6 +203,9 @@ body {
           <a href="./branches/" class="btn">Access Branches</a>
         </div>
       </section>
+
+      {% endblock %}
+
     </main>
 
     <footer>
