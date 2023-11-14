@@ -9,4 +9,4 @@ from django.contrib.auth.models import User
 
 def Mindex(request):
     
-    return render(request,'mindex.html',{'get_username':request.user.username})
+    return render(request,'mindex.html',{'get_username':request.POST['username']})

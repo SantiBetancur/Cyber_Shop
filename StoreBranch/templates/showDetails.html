@@ -1,53 +1,28 @@
+
+{% extends 'showBranches.html' %}
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Branch Details</title>
 </head>
-<style>
-    /* Style the branch details container */
-.branch-details {
-  margin: 20px;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
 
-/* Style the branch info section */
-.branch-info {
-  display: flex;
-  margin-bottom: 20px;
-}
-
-.branch-id,
-.branch-address {
-  margin-right: 20px;
-}
-
-.branch-id label,
-.branch-address label {
-  display: block;
-  font-weight: bold;
-}
-
-
-
-</style>
 <body>
-  <button onclick="history.back()">Go Back</button>
-
-  <div class="branch-details">
+  {% block content %}
+  <section class = "branch_content">
     <h1>Branch Details</h1>
     <div class="branch-info">
-    <div class="branch-id">
-    <label>Branch ID</label> <span>{{data.branchId}}</span><br/>
-</div>
-<div class="branch-address">
-    <label>Branch Address</label> <span>{{data.address}}<br/>
-    </span>
+      <p>Branch ID: <span>{{ data.branchId }}</span></p>
+      <p>Address:   <span>{{ data.address }}</span></p>
     </div>
+    <div style="display: flex; align-items: center; justify-content: center;">
+      <a class="forms_submit"
+      href="./showProducts/{{data.branchId}}" >View Branch Stock</a>
+  </div>  
 
-    </div>
-    <a href="./showProducts/{{data.branchId}}" class="branch-details-btn">View Products</a>
+  </section>
+  
+  {% endblock %}
 
 </body>
 </html>

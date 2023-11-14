@@ -2,14 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-class login_users(models.Model):
-    # Create the fields
-    username = models.CharField(max_length = 45)# VARCHAR(45)
-    email    = models.CharField(max_length = 45)
-    password = models.CharField(max_length = 8)
-    def __str__(self):
-        return self.name
-    
 
 #class Task(models.Model):
 #    title = models.CharField(max_length = 45)   

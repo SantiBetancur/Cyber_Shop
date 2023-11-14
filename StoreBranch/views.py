@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect,get_object_or_404,HttpResponseRedirect
 from StoreBranch.forms import BranchForm,ProductForm
-from .models import Branch,Product
+from .models import Branch, Stock
 
 # Create your views here.
 
@@ -30,7 +30,7 @@ def showBranches(request):
 
 def showProducts(request,branchId):
     context = {}
-    context["dataset"] = Product.objects.filter(productBranchId=branchId)
+    context["dataset"] = Stock.objects.filter(productBranchId=branchId)
     return render(request,"showProducts.html",context)
 
 def showDetails(request,branchId):
@@ -40,7 +40,7 @@ def showDetails(request,branchId):
 
 def showProductDetail(request,productId):
     context = {}
-    context["data"] = Product.objects.get(productId=productId)
+    context["data"] = Stock.objects.get(productId=productId)
     return render(request,"showProductDetail.html",context)
 
 def update(request,branchId):
@@ -58,7 +58,7 @@ def update(request,branchId):
 
 def updateProduct(request,branchId,productId):
     context = {}
-    obj = get_object_or_404(Product,productId=productId)
+    obj = get_object_or_404(Stock,productId=productId)
     form = ProductForm(request.POST or None,instance=obj)
 
     if form.is_valid():
@@ -77,7 +77,7 @@ def delete(request,branchId):
 
 def deleteProduct(request,branchId,productId):
     context = {}
-    obj = get_object_or_404(Product,productId=productId)
+    obj = get_object_or_404(Stock,productId=productId)
     if request.method == 'POST':
         obj.delete()
         return HttpResponseRedirect("/main/branches/show/showProducts/"+str(branchId))

@@ -1,3 +1,5 @@
+{% extends 'showBranches.html' %}
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -5,93 +7,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Branches</title>
-    <style>
 
-        body {
-            font-family: sans-serif;
-            background-color: #f2f2f2;
-        }
-        .main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-.branch-info {
-  padding: 20px;
-  border: 1px solid #ccc;
-  margin-bottom: 20px;
-}
-
-.branch-info p {
-  font-size: 20px;
-  line-height: 24px;
-  font-weight: bold;
-}
-
-.branch-actions {
-  margin-top: 20px;
-  text-align: right;
-}
-
-.branch-actions a {
-  text-decoration: none;
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  border-radius: 5px;
-  margin-right: 10px;
-}
-
-.branch-actions a:hover {
-  background-color: #9254b4;
-}
-
-.branch-management {
-  text-align: right;
-}
-
-.branch-management a {
-  text-decoration: none;
-  padding: 10px 20px;
-  background-color: #9254b4;
-  color: #fff;
-  border-radius: 5px;
-}
-
-.branch-management a:hover {
-  background-color: #333;
-}
-    </style>
 </head>
+<<<<<<< HEAD
 <a href="/main/branches" class="btn">HOME</a>
+=======
+>>>>>>> fa117409849bc90bd7fda43d3675f68342234617
 
-<div class="main">
 
-    {% for data in dataset %}
+  <div class="main">
+      {% block content %}
+      <section class="branch_content">
+        {% for data in dataset %}
   
-      <div class="branch-info">
-        <p>Product ID: {{ data.productId }}</p>
-        <p>Price: {{ data.price }}</p>
-        <p>Category: {{ data.category }}</p>
-        <p>Position: {{ data.Position }}</p>
-        <p>Branch ID: {{ data.productBranchId }}</p>
-  
-        <div class="branch-actions">
-          <a href="./updateProduct/{{data.productBranchId}}/{{ data.productId }}" class="btn">Edit</a>
-          <a href="./deleteProduct/{{data.productBranchId}}/{{data.productId}}" class="btn">Delete Product</a>
+        <div class="branch-info">
+          <p>Product ID:  <span>{{ data.productId }}</span></p>
+          <p>Price:       <span>{{ data.price }}</span></p>
+          <p>Category:    <span>{{ data.category }}</span></p>
+          <p>Position:    <span>{{ data.Position }}</span></p>
+          <p>Branch ID:   <span>{{ data.productBranchId }}</span></p>
+    
+          <div class="branch-actions">
+            <a href="./updateProduct/{{data.productBranchId}}/{{ data.productId }}" class="btn">Edit</a>
+            <a href="./deleteProduct/{{data.productBranchId}}/{{data.productId}}" class="btn">Delete Product</a>
+          </div>
         </div>
+    
+  
+    
+      {% endfor %}
+    
+      <div class="branch-management">
+        <a href="./addProduct/" class="btn">Add New Product</a>
+  
       </div>
-  
-      <hr/>
-  
-    {% endfor %}
-  
-    <div class="branch-management">
-      <a href="./addProduct/" class="btn">Add New Product</a>
-
-    </div>
-  
+    
+      </section>
+      
+     {% endblock %} 
   </div>
-  </html> 
+</html> 
   

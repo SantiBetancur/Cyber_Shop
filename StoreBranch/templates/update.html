@@ -1,15 +1,28 @@
-<div class="main">
-    <!-- Create a Form -->
-    <button onclick="history.back()">Go Back</button>
+{% extends 'showBranches.html' %}
 
+{% block content %}
+
+<section class = "branch_content">
+
+
+    
     <form method="POST">
         <!-- Security token by Django -->
         {% csrf_token %}
- 
+    
         <!-- form as paragraph -->
         {{ form.as_p }}
- 
-        <input type="submit" value="Update">
+    
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <input type="submit" value="Edit Branch" class="forms_submit">
+        </div>
+
     </form>
- 
-</div>
+     
+
+
+</section>
+
+
+
+{% endblock %}
