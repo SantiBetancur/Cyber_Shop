@@ -6,5 +6,5 @@ urlpatterns = [
     path("",views.showClients),
     path("showPersons/",views.showPersons),
     path("newCorp/",views.newCorporation),
-    path("showCorps",views.showCorps)
+    path("showCorps",views.showCorps),
 ]

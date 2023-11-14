@@ -1,13 +1,23 @@
+{% extends 'showBranches.html' %}
 
-<button onclick="history.back()">Go Back</button>
+{% block content %}
 
-<form method="POST" enctype="multipart/form-data">
+<section class="branch_content">
+
+    <form method="POST" enctype="multipart/form-data">
  
-    <!-- Security token -->
-    {% csrf_token %}
- 
-    <!-- Using the formset -->
-    {{ form.as_p }}
+        <!-- Security token -->
+        {% csrf_token %}
      
-    <input type="submit" value="Submit">
-</form>
+        <!-- Using the formset -->
+        {{ form.as_p }}
+         
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <input type="submit" value="Add New Client" class="forms_submit">
+        </div>
+    </form>
+
+
+</section>
+
+{% endblock %}

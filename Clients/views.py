@@ -35,4 +35,6 @@ def showCorps(request):
     context["dataset"] = Corporation.objects.all()
     return render(request,"showCorps.html",context)
 
+  
+
 #def newPhone(request,idCorp)
