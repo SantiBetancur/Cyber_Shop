@@ -26,11 +26,13 @@ def newCorporation(request):
     form = CorporationForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return HttpResponseRedirect("main/clients")
+        return HttpResponseRedirect("/main/clients")
     context["form"] = form
-    return render(request,"newCorpo.html",context)
+    return render(request,"newCorp.html",context)
 
 def showCorps(request):
     context = {}
     context["dataset"] = Corporation.objects.all()
-    return render(request,"showCorpos.html",context)
+    return render(request,"showCorps.html",context)
+
+#def newPhone(request,idCorp)
