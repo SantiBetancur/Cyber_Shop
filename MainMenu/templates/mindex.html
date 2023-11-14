@@ -44,9 +44,9 @@ body {
   header {
     background: linear-gradient(270deg, #4d448f, #6A679E);
     padding: 20px;
-    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
     justify-content: center;
     align-items: center;
+    text-align: center;
     display: flex;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -56,18 +56,35 @@ body {
     text-align:center ;
     width: 100px;
     padding: 10px;
-    background-color: white;
     border-radius: 10px;  
-    left: 15%;
-    font-size: 15px;
-    border: solid 1px white;
-    color: #5c5c5c;
+    left: 18%;
+    font-size: 20px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.579);
     font-weight: bold;
-    transition: .2s;
+    transition: .5s;
   }
   .log_out_btn:hover{
-    border: solid 1px #2815b3;
-    color:#6A679E;
+    color: #fff;
+    cursor: pointer;
+  }
+  .home_btn{
+    position: relative;
+    top: 70px;
+    text-align:center ;
+    width: 150px;
+    padding: 20px;
+    border-radius: 10px;  
+    left: 0;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.579);
+    font-weight: bold;
+    transition: .5s;
+    text-decoration: none;
+  }
+
+  .home_btn:hover{
+    color:#fff;
     cursor: pointer;
   }
   
@@ -82,10 +99,8 @@ body {
   }
   
   nav {
-    background-color: #fff;
+    background-color: #ebebeb;
     padding: 20px;
-    box-shadow: 0 4px 1px #1c0aa5;
-
     border-bottom-left-radius: 20px ;
     border-bottom-right-radius: 20px;
   }
@@ -166,9 +181,11 @@ body {
 </style>
 <body>
   <div class="container">
+    <a class="home_btn" href="/main/">Home</a>
     <header>
       <h1 class="logo">Cyber Shop™ <span>Admin center</span></h1>
-      <a class="log_out_btn" href="/" >Log out</a>
+      <a class="log_out_btn" href="./logout/" >Log out</a>
+      
       
     </header>
 
@@ -182,6 +199,9 @@ body {
     <main>
 
       <section class="hero">
+
+        {% csrf_token %}   
+         
         <h1>Welcome Back {{get_username}}!</h1>
         <p>You have successfully logged in.</p>
       </section>

@@ -1,12 +1,23 @@
 from django.shortcuts import render
-from django.http import HttpResponse,JsonResponse
-from django.shortcuts import render
-from django.contrib.auth.models import User
+from django.shortcuts import render, redirect
+from django.contrib.auth import logout, get_user
+
+
 
 
 
 # Create your views here.
 
 def Mindex(request):
-    
-    return render(request,'mindex.html',{'get_username':request.POST['username']})
+    u = get_user(request)
+    c_user = ""
+    if u.is_authenticated:
+        c_user = u
+
+    return render(request,'mindex.html', {'get_username':c_user})
+
+
+def Logout(request):
+    logout(request)
+    return redirect('/')#login
+

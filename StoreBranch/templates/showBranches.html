@@ -84,6 +84,44 @@ header {
     box-shadow: 0px 0px 24px #5C5696;
 }
 
+.log_out_btn{
+    position: relative;
+    text-align:center ;
+    width: 100px;
+    padding: 10px;
+    border-radius: 10px;  
+    left: 18%;
+    font-size: 20px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.579);
+    font-weight: bold;
+    transition: .5s;
+  }
+  .log_out_btn:hover{
+    color: #fff;
+    cursor: pointer;
+  }
+  .home_btn{
+    position: relative;
+    top: 70px;
+    text-align:center ;
+    width: 150px;
+    padding: 20px;
+    border-radius: 10px;  
+    left: 0;
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.579);
+    font-weight: bold;
+    transition: .5s;
+    text-decoration: none;
+  }
+
+  .home_btn:hover{
+    color:#fff;
+    cursor: pointer;
+  }
+  
+
 
 .branch_content{
   background-color: #dddddd;
@@ -106,7 +144,6 @@ header {
   margin-bottom: 30px;
   margin-top: 30px;
   border-radius: 20px;
-  border: solid 2px #2815b3;
 }
 
 .branch-info p {
@@ -114,7 +151,7 @@ header {
   line-height: 24px;
   color:rgb(218, 85, 85);
   margin-bottom: 10px;
-  border-bottom: solid 3px #b7b7b7;
+  border-bottom: solid 2px #d4d4d4;
   
 }
 
@@ -135,7 +172,6 @@ header {
   padding: 10px 40px 10px 40px;
   margin-left: 30px;
   color: white;
-  font-weight: bold;
   text-decoration: none;
   border-radius: 30px;
   transition: .2s;
@@ -143,7 +179,7 @@ header {
 }
 
 .branch-actions a:hover {
-  background-color: #2b2597;
+  background-color: #27255b;
 }
 
 .branch-management {
@@ -154,7 +190,7 @@ header {
   text-decoration: none;
   padding: 10px 40px 10px 40px;
   background-color: #5D54A4;
-  font-size: 25px;
+  font-size: 15px;
   color: #fff;
   border-radius: 10px;
 }
@@ -162,7 +198,7 @@ header {
 
 
 .branch-management a:hover {
-  background-color: #333;
+  background-color: #3a346d;
 }
 
 .branch_stock{
@@ -221,12 +257,10 @@ display: flex;
   padding: 10px 40px 10px 40px;
   margin-left: 30px;
   color: white;
-  font-weight: bold;
   text-decoration: none;
   border-radius: 30px;
   transition: .2s;
-  font-size: 20px;
-  
+
 }
 
 .forms_submit:hover{
@@ -242,9 +276,10 @@ display: flex;
 
     
     
+    <a class="home_btn" href="/main/">Home</a>
     <header>
       <h1 class="logo">Cyber Shop™ <span>Admin center</span></h1>
-      <button onclick="history.back()" class="back_btn">Go Back</button>
+      <a class="log_out_btn" onclick="history.back()" >Back</a>
     </header>
 
     {% block content %}  

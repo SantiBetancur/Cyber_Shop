@@ -1,0 +1,50 @@
+{% extends 'showBranches.html'%}
+
+{% block content %}
+
+<style>
+  .feature {
+    width: 300px;
+    margin: 0 10px;
+    padding: 20px;
+    background-color:#6A679E;
+    color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    transition: .3s;
+    margin-bottom: 30px;
+  }
+  .feature:hover{
+    background-color: #343168;
+  }
+  
+  .feature img {
+    width: 100px;
+    height: 100px;
+  }
+  .btn{
+    font-style: normal;
+    color: white;
+    font-weight: bold;
+  }
+</style>
+
+<section class = "branch_content">
+  
+  <div class="feature">
+    <img src="images/clients.svg" alt="Clients Icon">
+    <h2>Person Section</h2>
+    <p>Manage your client than appear as Person</p>
+    <a href="./showPersons.html" class="btn">Access Clients</a>
+  </div>
+
+  <div class="feature">
+    <img src="images/branches.svg" alt="Branches Icon">
+    <h2>Corp Section</h2>
+    <p>Manage your clients than appear as Corporations and Enterprises.</p>
+    <a href="./showCorps.html" class="btn">Access Clients</a>
+  </div>
+
+</section>
+
+{% endblock %}

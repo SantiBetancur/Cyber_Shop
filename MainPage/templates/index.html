@@ -232,13 +232,13 @@ body{
                 {{login_error}}
 				{{register_success}}
             </div>
-			<form class="login" action = "/main/" method="POST">
+			<form class="login"  method="POST">
 
 				<p><span>Cyber Shop™</span> Admin Center</p>
 				{% csrf_token %}
 				{{form}}
 				
-				<button class="button login__submit">
+				<button class="button login__submit" type="submit">
 					<span class="button__text">Log In Now</span>
 					<i class="button__icon fas fa-chevron-right"></i>
 				</button>	

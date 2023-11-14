@@ -5,6 +5,7 @@ from django.contrib.auth.hashers import check_password
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
 from .forms import Login_form, Register_form
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 #def hello(request):
@@ -14,15 +15,19 @@ def index(request):
     if request.method == 'GET':
         return render(request, 'index.html', {'form': Login_form()})
     else:
-     
+        username = request.POST['username']
+        password = request.POST['password']
+
+        #Autenticate user
+        user = authenticate(request, username = username, password = password)
         #Request info from the database    
         try:
-            get_user = User.objects.get(username = request.POST['username']).username
-
-            if (check_password(request.POST['password'], 
-                            User.objects.get(username = get_user).password)): 
-            
-                return redirect('/main/')
+       
+            if (user is not None):
+                print("Logged")
+                #login on the database
+                login(request, user)      
+                return redirect("/main/")
         
             return render(request, 'index.html', 
                         {'form': Login_form(), 'login_error':'Incorrect Username or Password'})
@@ -35,8 +40,7 @@ def index(request):
 
 def register(request):
                    
-     
-          
+              
     if request.method == 'GET':
         return render(request, 'register.html',{'register':Register_form()})    
     else:
