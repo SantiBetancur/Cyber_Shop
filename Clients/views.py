@@ -19,11 +19,7 @@ def showPersons(request):
     return render(request,"showPersons.html",context)
 
 def showClients(request):
-<<<<<<< HEAD
     return render(request,"clientsMenu.html")
-=======
-    return render(request,"showClients.html")
->>>>>>> refs/remotes/origin/main
 
 def newCorporation(request):
     context = {}
