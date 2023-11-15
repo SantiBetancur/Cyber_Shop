@@ -13,5 +13,6 @@ urlpatterns = [
     path('show/showProducts/showProductDetails/<int:productId>',views.showProductDetail),
     path('show/showProducts/updateProduct/<int:branchId>/<int:productId>',views.updateProduct),
     path('show/showProducts/deleteProduct/<int:branchId>/<int:productId>',views.deleteProduct),
-
+    path('show/showProducts/history/', views.stockHistory),
+    path('history/', views.branchesHistory)
 ]

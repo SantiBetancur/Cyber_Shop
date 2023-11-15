@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404,HttpResponseRedirect
 from StoreBranch.forms import BranchForm,ProductForm
-from .models import Branch, Stock
+from .models import Branch, Stock, productHistory, branchHistory
+from django.db import connection
 
 # Create your views here.
 
@@ -25,12 +26,28 @@ def insertProduct(request):
 
 def showBranches(request):
     context = {}
-    context["dataset"] = Branch.objects.all()   
+    context["dataset"] = Branch.objects.all() 
+
+    #call a msql function
+    cursor = connection.cursor()
+    query = "SELECT ammount_of_branches()"
+    cursor.execute(query)
+    result = cursor.fetchone()[0]
+    context['b_result'] = result
+    cursor.close() 
+
     return render(request,"showBranches.html",context)
 
 def showProducts(request,branchId):
     context = {}
     context["dataset"] = Stock.objects.filter(productBranchId=branchId)
+
+    cursor = connection.cursor()
+    query = "SELECT ammount_of_products(%s)"
+    attr = (branchId,)
+    cursor.execute(query, attr)
+    result = cursor.fetchone()[0]
+    context['p_result'] = result
     return render(request,"showProducts.html",context)
 
 def showDetails(request,branchId):
@@ -82,3 +99,13 @@ def deleteProduct(request,branchId,productId):
         obj.delete()
         return HttpResponseRedirect("/main/branches/show/showProducts/"+str(branchId))
     return render(request,"deleteProduct.html",context)
+
+def stockHistory(request):
+    context = {}
+    context["dataset"] = productHistory.objects.all()
+    return render(request, 'productHistory.html', context)
+
+def branchesHistory(request):
+    context = {}
+    context["dataset"] = branchHistory.objects.all()
+    return render(request, 'branchHistory.html', context)

@@ -1,0 +1,24 @@
+{% extends 'showBranches.html' %}
+
+{% block content %}
+<section class="branch_content">
+    <h1>Deleted history for Corps</h1>
+    {% for data in dataset %}
+
+    <div class="branch-info">
+
+      <p>Client Id: {{ data.id }}</p>
+      <p>Name: {{ data.clientName }}</p>
+      <p>RUT: {{ data.RUT }}</p>
+      <p>Address: {{ data.clientAddress }}</p>
+      <p>Discount: {{ data.discount }}</p>
+
+    </div>
+
+
+  {% endfor %}
+
+
+</section>
+
+{% endblock %} 

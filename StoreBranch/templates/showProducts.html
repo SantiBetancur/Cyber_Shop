@@ -1,35 +1,25 @@
 {% extends 'showBranches.html' %}
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Branches</title>
-
-</head>
-<<<<<<< HEAD
 <a href="/main/branches" class="btn">HOME</a>
-=======
->>>>>>> fa117409849bc90bd7fda43d3675f68342234617
 
 
   <div class="main">
       {% block content %}
       <section class="branch_content">
+        <h1>Available products: {{ p_result }}</h1>
         {% for data in dataset %}
   
         <div class="branch-info">
           <p>Product ID:  <span>{{ data.productId }}</span></p>
           <p>Price:       <span>{{ data.price }}</span></p>
           <p>Category:    <span>{{ data.category }}</span></p>
-          <p>Position:    <span>{{ data.Position }}</span></p>
+          <p>Position:    <span>{{ data.position }}</span></p>
           <p>Branch ID:   <span>{{ data.productBranchId }}</span></p>
     
           <div class="branch-actions">
             <a href="./updateProduct/{{data.productBranchId}}/{{ data.productId }}" class="btn">Edit</a>
             <a href="./deleteProduct/{{data.productBranchId}}/{{data.productId}}" class="btn">Delete Product</a>
+      
           </div>
         </div>
     
@@ -39,6 +29,7 @@
     
       <div class="branch-management">
         <a href="./addProduct/" class="btn">Add New Product</a>
+        <a style="margin-right: 30px;" href="./history/" class="btn"> History </a>
   
       </div>
     

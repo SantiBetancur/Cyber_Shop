@@ -1,0 +1,24 @@
+{% extends 'showBranches.html' %}
+
+{% block content %}
+<section class="branch_content">
+    <h1>History of deleted products</h1>
+    {% for data in dataset %}
+
+    <div class="branch-info">
+
+        <p>Product id: <span> {{ data.productId }} </span></p>
+        <p>Price:     <span>{{ data.price }}</span></p>
+        <p>Category:  <span>{{ data.category}}</span></p>
+        <p>Position:  <span>{{ data.position}}</span></p>
+        <p>Branch id: <span>{{ data.productBranchId}}</span></p>
+
+    </div>
+
+
+    {% endfor %}
+
+
+</section>
+
+{% endblock %}       

@@ -1,104 +1,35 @@
+{% extends 'showBranches.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Branches</title>
-    <style>
+{% block content %}
+<section class="branch_content">
 
-        body {
-            font-family: sans-serif;
-            background-color: #f2f2f2;
-        }
-        .main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
+  <h1 style="margin-bottom: 10%;">Corporations and clients with RUT</h1>
 
-.branch-info {
-  margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  margin-bottom: 20px;
-}
+  {% for data in dataset %}
 
-.branch-info p {
-  font-size: 20px;
-  line-height: 24px;
-  font-weight: bold;
-}
-
-.branch-actions {
-  margin-top: 20px;
-  text-align: right;
-}
-
-.branch-actions a {
-  text-decoration: none;
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  border-radius: 5px;
-  margin-right: 10px;
-}
-
-.branch-actions a:hover {
-  background-color: #9254b4;
-}
-
-.branch-management {
-  text-align: right;
-}
-
-.branch-management a {
-  text-decoration: none;
-  padding: 10px 20px;
-  background-color: #9254b4;
-  color: #fff;
-  border-radius: 5px;
-}
+    <div class="branch-info">
+      <p>Client Id:  <span>{{ data.id }}</span></p>
+      <p>Name:       <span>{{ data.clientName }}</span></p>
+      <p>RUT:        <span>{{ data.RUT }}</span></p>
+      <p>Address:    <span>{{ data.clientAddress }}</span></p>
+      <p>Discount:   <span>{{ data.discount }}</span></p>
 
 
-
-.branch-management a:hover {
-  background-color: #333;
-}
-
-
-    </style>
-</head>
-<button onclick="history.back()">Go Back</button>
-
-
-<div class="main">
-  <h1>BRANCHES</h1>
-
-    {% for data in dataset %}
-  
-      <div class="branch-info">
-        <p>ClientId: {{ data.id }}</p>
-        <p>Name: {{ data.clientName }}</p>
-        <p>DNI: {{ data.DNI }}</p>
-        <p>Address: {{ data.clientAddress }}</p>
-  
-        <div class="branch-actions">
-          <a href="./show/{{ data.branchId }}" class="btn">View Details</a>
-          <a href="./update/{{ data.branchId }}" class="btn">Edit</a>
-          <a href="./delete/{{data.branchId}}" class="btn">Delete Branch</a>
-        </div>
+      <div class="branch-actions">
+        <a href="/main/clients/deleteCorp/{{data.id}}" class="btn">Delete Client</a>
       </div>
-  
-      <hr/>
-  
-    {% endfor %}
-  
-    <div class="branch-management">
-      <a href="./newCorp" class="btn">Add New Branch</a>
-
     </div>
+
+
+  {% endfor %}
+
+  <div class="branch-management">
+    <a href="/main/clients/newCorp/" class="btn">Add New Client</a>
   
   </div>
-  </html> 
-  
+
+
+
+</section>
+ 
+ {% endblock %} 

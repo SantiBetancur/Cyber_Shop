@@ -1,0 +1,29 @@
+{% extends 'showBranches.html' %}
+
+{% block content %}
+
+<section class = "branch_content">
+ 
+    <form method="POST">
+        <!-- Security token by Django -->
+        {% csrf_token %}
+        Are you want to delete this item ?
+        
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <input type="submit" value="Yes" class="forms_submit"/>
+            <a style="
+            text-decoration: none;
+            font-size: 20px;
+            color: rgb(179, 76, 76);
+            font-weight: bold;
+            margin-left: 20px;
+            cursor: pointer;
+            "
+            onclick="history.back()" >Cancel</a>
+        </div>  
+    </form>
+
+
+</section>
+
+{% endblock %}

@@ -3,24 +3,20 @@
 {% block content %}
 
 <section class="branch_content">
-  <h1 style="margin-bottom: 20px;">Clients Registred</h1>
+  <h1 style="margin-bottom: 10%;">Clients Registred</h1>
 
     {% for data in dataset %}
   
       <div class="branch-info">
-        <p>ClientId: {{ data.id }}</p>
-        <p>Name: {{ data.clientName }}</p>
-        <p>DNI: {{ data.DNI }}</p>
-        <p>Address: {{ data.clientAddress }}</p>
+        <p>Client Id: <span>{{ data.id }}</span></p>
+        <p>Name:      <span>{{ data.clientName }}</span></p>
+        <p>DNI:       <span>{{ data.DNI }}</span></p>
+        <p>Address:   <span>{{ data.clientAddress }}</span></p>
   
         <div class="branch-actions">
-          <a href="./show/{{ data.branchId }}" class="btn">View Details</a>
-          <a href="./update/{{ data.branchId }}" class="btn">Edit</a>
-          <a href="./delete/{{data.branchId}}" class="btn">Delete Branch</a>
+          <a href="/main/clients/deletePerson/{{data.id}}" class="btn">Delete Client</a>
         </div>
       </div>
-  
-      <hr/>
   
     {% endfor %}
   

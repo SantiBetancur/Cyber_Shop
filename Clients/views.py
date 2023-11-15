@@ -1,5 +1,5 @@
-from django.shortcuts import render,get_list_or_404,HttpResponseRedirect
-from .models import ClientInfo,clientPhones,Person,Corporation
+from django.shortcuts import render,get_object_or_404,HttpResponseRedirect
+from .models import ClientInfo,clientPhones,Person,Corporation,historyPerson,historyCorp
 from .forms import ClientForm,CorporationForm,PersonForm,PhonesForm
 
 # Create your views here.
@@ -35,6 +35,32 @@ def showCorps(request):
     context["dataset"] = Corporation.objects.all()
     return render(request,"showCorps.html",context)
 
-  
+'''def deletePerson(request,id):
+    context = {}
+    person = get_object_or_404(Person, clientinfo_ptr_id = id)
+    client = get_object_or_404(ClientInfo,id = id)
 
-#def newPhone(request,idCorp)
+    if request.method == 'POST':
+        person.delete()
+        
+        return HttpResponseRedirect("/main/clients/showPersons")
+    return render(request,"deletePerson.html",context)
+
+def deleteCorp(request,id):
+    context = {}
+    obj = get_object_or_404(Corporation,id=id)
+    if request.method == 'POST':
+        obj.delete()
+        return HttpResponseRedirect("/main/clients/showCorps")
+    return render(request,"deleteCorp.html",context)
+'''
+def personHistory(request):
+    context = {}
+    context["dataset"] = historyPerson.objects.all()
+    return render(request, 'personHistory.html', context)
+
+def corpHistory(request):
+    context = {}
+    context["dataset"] = historyCorp.objects.all()
+    return render(request, 'corpHistory.html', context)    
+

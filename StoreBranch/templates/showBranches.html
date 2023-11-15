@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Branches</title>
+    <title>Admin Center</title>
 </head>
 <style>
 
@@ -75,7 +75,7 @@ header {
 .container {  
 
     max-width: 50%;
-    height: 600px;
+    height: 750px;
     margin: 0 auto;
     padding: 2% 2% 5% 2% ;
     background-color: #ffffff;
@@ -271,21 +271,26 @@ display: flex;
 
 </style>
 <body>
+  <script>
+    function goBack() {
+      history.back();
+      location.reload();
+    }
+    </script>
 
   <div class="container">
 
-    
-    
+ 
     <a class="home_btn" href="/main/">Home</a>
     <header>
       <h1 class="logo">Cyber Shop™ <span>Admin center</span></h1>
-      <a class="log_out_btn" onclick="history.back()" >Back</a>
+      <a class="log_out_btn" onclick="goBack()" >Back</a>
     </header>
 
     {% block content %}  
     <section class="branch_content">
 
-        <h1>Available Branches</h1>
+        <h1>Available Branches: {{ b_result }}</h1>
 
         {% for data in dataset %}
       
@@ -307,6 +312,7 @@ display: flex;
       
         <div class="branch-management">
           <a href="./insert" class="btn">Add New Branch</a>
+          <a style="margin-right: 30px;" href="./history/" class="btn"> History </a>
 
         </div>
 

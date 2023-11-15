@@ -16,3 +16,11 @@ class Corporation(ClientInfo):
 
 class Person(ClientInfo):
     DNI = models.IntegerField(null=False,primary_key=True)
+
+
+class historyPerson(ClientInfo):
+    DNI = models.IntegerField(null=False)
+
+class historyCorp(ClientInfo):
+    RUT = models.IntegerField(null=False)
+    discount = models.FloatField()
