@@ -1,6 +1,7 @@
 from django.shortcuts import render,get_object_or_404,HttpResponseRedirect
 from .models import ClientInfo,clientPhones,Person,Corporation,historyPerson,historyCorp
 from .forms import ClientForm,CorporationForm,PersonForm,PhonesForm
+from django.db import connection
 
 # Create your views here.
 
@@ -62,5 +63,23 @@ def personHistory(request):
 def corpHistory(request):
     context = {}
     context["dataset"] = historyCorp.objects.all()
-    return render(request, 'corpHistory.html', context)    
+    return render(request, 'corpHistory.html', context)
 
+def clientType(request):
+    context = {}
+    return render(request,'clientType.html',context) 
+
+def clientType1(request,id):
+    context = {}
+    cursor = connection.cursor()
+    result = cursor.callproc("tipoCliente",[id])
+    result = cursor.fetchone()[0]
+    if result == 1:
+        res = "Corporation"
+    elif result == 0:
+        res = "Person"
+    else:
+        res = "Error"
+    context['b_result'] = res
+    cursor.close()     
+    return render(request,"clientType1.html",context)

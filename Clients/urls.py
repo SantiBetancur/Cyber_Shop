@@ -7,6 +7,9 @@ urlpatterns = [
     path("showPersons/",views.showPersons),
     path("newCorp/",views.newCorporation),
     path("showCorps/",views.showCorps),
+    path("clientType/<int:id>/",views.clientType1),
+    path("clientType/",views.clientType)
+
     
 ]
 
