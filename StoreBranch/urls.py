@@ -14,5 +14,7 @@ urlpatterns = [
     path('show/showProducts/updateProduct/<int:branchId>/<int:productId>',views.updateProduct),
     path('show/showProducts/deleteProduct/<int:branchId>/<int:productId>',views.deleteProduct),
     path('show/showProducts/history/', views.stockHistory),
-    path('history/', views.branchesHistory)
+    path('history/', views.branchesHistory),
+    path('history/empty/', views.empty_branch_history),
+    path('show/showProducts/history/empty/', views.empty_product_history)
 ]

@@ -8,6 +8,8 @@
         <!-- Security token by Django -->
         {% csrf_token %}
         Are you want to delete this item ?
+     </br>
+        <p>{{error_to_delete}}</p>
         
         <div style="display: flex; align-items: center; justify-content: center;">
             <input type="submit" value="Yes" class="forms_submit"/>

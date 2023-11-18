@@ -29,6 +29,7 @@ def showBranches(request):
     context["dataset"] = Branch.objects.all() 
 
     #call a msql function
+
     cursor = connection.cursor()
     query = "SELECT ammount_of_branches()"
     cursor.execute(query)
@@ -93,19 +94,37 @@ def delete(request,branchId):
     return render(request,"delete.html",context)
 
 def deleteProduct(request,branchId,productId):
-    context = {}
-    obj = get_object_or_404(Stock,productId=productId)
-    if request.method == 'POST':
-        obj.delete()
-        return HttpResponseRedirect("/main/branches/show/showProducts/"+str(branchId))
-    return render(request,"deleteProduct.html",context)
+    try:
+        context = {}
+        obj = get_object_or_404(Stock,productId=productId)
+        if request.method == 'POST':
+            obj.delete()
+            return HttpResponseRedirect("/main/branches/show/showProducts/"+str(branchId))
+        return render(request,"deleteProduct.html",context)
+    except:
+        return render(request,'deleteProduct.html',{'error_to_delete':'This product is already in the History, please modify the id of this product.'} )
 
 def stockHistory(request):
     context = {}
     context["dataset"] = productHistory.objects.all()
     return render(request, 'productHistory.html', context)
+    
 
 def branchesHistory(request):
     context = {}
     context["dataset"] = branchHistory.objects.all()
     return render(request, 'branchHistory.html', context)
+
+def empty_branch_history(request):
+    try:
+        branchHistory.objects.all().delete()
+        return render(request, 'showBranches.html', {'emptied_success':'History was emptied successfuly'})
+    except:
+        return render(request, 'showBranches.html', {'emptied_success': 'Error tryed to delete.'})  
+
+def empty_product_history(request):
+    try:
+        productHistory.objects.all().delete()
+        return render(request, 'showProducts.html',{'emptied_success':'History was emptied successfuly'})
+    except:
+        return render(request, 'showProducts.html', {'emptied_success': 'Error tryed to delete.'})     

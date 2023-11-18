@@ -7,6 +7,7 @@
       {% block content %}
       <section class="branch_content">
         <h1>Available products: {{ p_result }}</h1>
+        <p style="color: rgb(198, 86, 86); font-weight: bold;">{{emptied_success}}</p>
         {% for data in dataset %}
   
         <div class="branch-info">

@@ -254,15 +254,20 @@ body {
     align-items: center;
     list-style: none;
     margin-top: 20px;  
-	margin-left: 20px; 
+	margin-left: 20px;
 }
 
 .aux a{
-    color:#5D54A4;
 	font-size: 15px;
 	font-style: normal;
 	font-weight: bold;
-		
+	color: #4747476c;
+	text-decoration: none;
+	transition: .5s;
+}
+.aux a:hover{
+
+	color: #474747;
 }
 
 
@@ -286,6 +291,7 @@ body {
                 {% csrf_token %}
 
 				{{register}}
+
 				<p style="font-size: 13px; color:rgb(99, 99, 99);" >Min 8 char with: 1 Upper/Lower char and 1 number.</p>
 				<button class="button login__submit">
 					<span class="button__text">Register Now</span>

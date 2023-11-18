@@ -1,0 +1,33 @@
+{% extends 'showBranches.html' %}
+
+{% block content %}
+<section class="branch_content">
+    <h1>Type of client: {{ b_result }}</h1>
+
+    {% for data in req_corp_info %}
+
+    <div class="branch-info">
+        <p>Client id:  <span>{{ data.id }}</span></p>
+        <p>Name:       <span>{{ data.clientName }}</span></p>
+        <p>RUT:        <span>{{ data.RUT }}</span></p>
+        <p>Address:    <span>{{ data.clientAddress }}</span></p>
+        <p>Discount:   <span>{{ data.discount }}</span></p>
+    </div>
+
+    {% endfor %}
+
+    {% for data in req_pers_info %}
+
+    <div class="branch-info">
+        
+        <p>Client id: <span>{{ data.id }}</span></p>
+        <p>Name:      <span>{{ data.clientName }}</span></p>
+        <p>DNI:       <span>{{ data.DNI }}</span></p>
+        <p>Address:   <span>{{ data.clientAddress }}</span></p>
+
+    </div>
+
+    {% endfor %}
+
+</section>
+{% endblock %}

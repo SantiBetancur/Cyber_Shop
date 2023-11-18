@@ -1,0 +1,29 @@
+{% extends 'showBranches.html' %}
+
+{% block content %}
+<section class="branch_content">
+
+    <script>
+        function redirectClient() {
+            var clientName = document.getElementById('clientName').value;
+            var redirectURL = './' + clientName;
+            window.location.href = redirectURL;
+            return false; // Prevent the form from submitting normally
+        }
+    </script>
+
+    <h1>Client Consult</h1>
+    <form onsubmit="return redirectClient()">
+        <label for="clientName">Enter Client id:</label>
+        <input type="text" id="clientName" name="clientName" placeholder="Enter client name">
+
+        <div style="display: flex; align-items: center; justify-content: center; margin-top: 10%;">
+            <input type="submit" value="Consult Client" class="forms_submit">
+        </div>  
+    </form>
+
+
+
+</section>
+
+{% endblock %}    

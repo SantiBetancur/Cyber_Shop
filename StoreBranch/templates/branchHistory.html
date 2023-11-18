@@ -9,12 +9,22 @@
     <div class="branch-info">
 
         <p>Branch: <span>{{ data.branchId }}</span></p>
-        <p>Addres: <span>{{ data.addres }}</span></p>
+        <p>Address: <span>{{ data.address }}</span></p>
 
     </div>
 
 
     {% endfor %}
+    <script>
+        function goBack() {
+        history.back();
+        location.reload();
+    }
+    </script>
+    
+    <div class="branch-actions">
+        <a onclick="goBack()">Empty History</a>
+    </div>
 
 
 </section>

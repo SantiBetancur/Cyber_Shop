@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Main Page</title>
+  <title>Welcome {{get_username}}</title>
 </head>
 <style>
 
@@ -33,17 +33,18 @@ body {
   .container {
 
     max-width: 50%;
-    height: 600px;
+    height: 750px;
     margin: 0 auto;
-    padding: 2% 2% 5% 2% ;
+    padding: 0 0 5% 0% ;
     background-color: #ffffff;
-    border-radius: 10px;
+    border-radius: 20px;
     box-shadow: 0px 0px 24px #5C5696;
   }
   
   header {
     background: linear-gradient(270deg, #4d448f, #6A679E);
     padding: 20px;
+    width: 95.8%;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -101,8 +102,6 @@ body {
   nav {
     background-color: #ebebeb;
     padding: 20px;
-    border-bottom-left-radius: 20px ;
-    border-bottom-right-radius: 20px;
   }
   
   nav ul {
@@ -118,11 +117,13 @@ body {
   
   nav a {
     text-decoration: none;
-    color: #5a5a5a;
+    color: #696969;
     font-weight: bold;
+    font-size: 20px;
+    transition: .5s;
   }
   nav a:hover{
-    color: #4d448f;
+    color: rgb(41, 41, 41);
   }
   
   main {
@@ -136,6 +137,7 @@ body {
   .hero {
     text-align: center;
     margin: 40px;
+    margin-top: 10%;
   }
   
   .hero h1 {
@@ -150,6 +152,8 @@ body {
   }
   
   .features {
+    margin-top: 7%;
+    padding: 40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

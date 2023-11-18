@@ -9,14 +9,25 @@
 
         <p>Product id: <span> {{ data.productId }} </span></p>
         <p>Price:     <span>{{ data.price }}</span></p>
-        <p>Category:  <span>{{ data.category}}</span></p>
-        <p>Position:  <span>{{ data.position}}</span></p>
-        <p>Branch id: <span>{{ data.productBranchId}}</span></p>
+        <p>Category:  <span>{{ data.category }}</span></p>
+        <p>Position:  <span>{{ data.position }}</span></p>
+        <p>Branch id: <span>{{ data.productBranchId }}</span></p>
 
     </div>
 
-
     {% endfor %}
+
+    <script>
+        function goBack() {
+        history.back();
+        location.reload();
+    }
+    </script>
+    
+    <div class="branch-actions">
+        <a onclick="goBack()">Empty History</a>
+    </div>
+
 
 
 </section>
